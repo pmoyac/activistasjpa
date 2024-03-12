@@ -18,21 +18,22 @@ import javax.persistence.*;
  * @author Laboratorios
  */
 @Entity
-@Table(name="problema")
+@Table(name = "problema")
 public class Problema implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    public String nombre;
     private Calendar fechaInicio;
     private Calendar fechaFinal;
     private String estado;
-    
+
     @ManyToOne
     @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    
+
     @ManyToMany(mappedBy = "problemas")
     List<Activista> activistas;
 
@@ -42,6 +43,14 @@ public class Problema implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Calendar getFechaInicio() {
@@ -76,8 +85,6 @@ public class Problema implements Serializable {
         this.activistas = activistas;
     }
 
-    
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -93,8 +100,6 @@ public class Problema implements Serializable {
         this.cliente = cliente;
         this.activistas = activistas;
     }
-    
-    
 
     public Problema() {
     }
@@ -119,11 +124,23 @@ public class Problema implements Serializable {
         this.estado = estado;
         this.activistas = activistas;
     }
-    
-    
-    
-    
-    
+
+    public Problema(String nombre, Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente cliente, List<Activista> activistas) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.estado = estado;
+        this.cliente = cliente;
+        this.activistas = activistas;
+    }
+
+    public Problema(String nombre, Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente cliente) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.estado = estado;
+        this.cliente = cliente;
+    }
 
     @Override
     public int hashCode() {
@@ -150,7 +167,4 @@ public class Problema implements Serializable {
         return "Problema{" + "id=" + id + ", fechaInicio=" + fechaInicio.getTime() + ", fechaFinal=" + fechaFinal.getTime() + ", estado=" + estado + '}';
     }
 
-    
-    
-    
 }

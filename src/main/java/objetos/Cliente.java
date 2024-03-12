@@ -74,6 +74,14 @@ public class Cliente implements Serializable {
     public void setDirecciones(List<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
+
+    public List<Problema> getProblemas() {
+        return problemas;
+    }
+
+    public void setProblemas(List<Problema> problemas) {
+        this.problemas = problemas;
+    }
     
     
 

@@ -86,13 +86,13 @@ public class EjmploJPAactivista {
 //        em.persist(c);
 //        em.getTransaction().commit();
 
-        Cliente c = new Cliente();
-        c.setNombres("jim");
-        c.setAp_materno("halpert");
-        c.setAp_paterno("rsamirezx");
-        Activista a = new Activista("pedro","moya","asdg","65465465",new GregorianCalendar(2020, 1, 15));
-        Problema p = new Problema(new GregorianCalendar(2020, 1, 15),new GregorianCalendar(2020, 1, 15),"pendiente");
-        
+//        Cliente c = new Cliente();
+//        c.setNombres("jim");
+//        c.setAp_materno("halpert");
+//        c.setAp_paterno("rsamirezx");
+//        Activista a = new Activista("pedro","moya","asdg","65465465",new GregorianCalendar(2020, 1, 15));
+//        Problema p = new Problema(new GregorianCalendar(2020, 1, 15),new GregorianCalendar(2020, 1, 15),"pendiente");
+//        
         
         
     }

@@ -25,39 +25,43 @@ public class Direccion implements Serializable {
     private Long id;
     private String calle;
     private String colonia;
-    private Long codigoPostal;
-    private Long numeroExterior;
+    private String codigoPostal;
+    private String numeroExterior;
     
     @ManyToOne
     @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    
+
     public Direccion() {
+    }
+
+    public Direccion(Long id, String calle, String colonia, String codigoPostal, String numeroExterior, Cliente cliente) {
+        this.id = id;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.codigoPostal = codigoPostal;
+        this.numeroExterior = numeroExterior;
+        this.cliente = cliente;
     }
 
     public Direccion(Long id) {
         this.id = id;
     }
 
-    public Direccion(Long id, String calle, String colonia, Long codigoPostal, Long numeroEnterior, Cliente cliente) {
-        this.id = id;
+    public Direccion(String calle, String colonia, String codigoPostal, String numeroExterior, Cliente cliente) {
         this.calle = calle;
         this.colonia = colonia;
         this.codigoPostal = codigoPostal;
-        this.numeroExterior = numeroEnterior;
+        this.numeroExterior = numeroExterior;
         this.cliente = cliente;
     }
 
-    public Direccion(String calle, String colonia, Long codigoPostal, Long numeroEnterior, Cliente cliente) {
+    public Direccion(String calle, String colonia, String codigoPostal, String numeroExterior) {
         this.calle = calle;
         this.colonia = colonia;
         this.codigoPostal = codigoPostal;
-        this.numeroExterior = numeroEnterior;
-        this.cliente = cliente;
+        this.numeroExterior = numeroExterior;
     }
-
-    
-
     
     
 
@@ -85,20 +89,20 @@ public class Direccion implements Serializable {
         this.colonia = colonia;
     }
 
-    public Long getCodigoPostal() {
+    public String getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(Long codigoPostal) {
+    public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
-    public Long getNumeroEnterior() {
+    public String getNumeroExterior() {
         return numeroExterior;
     }
 
-    public void setNumeroEnterior(Long numeroEnterior) {
-        this.numeroExterior = numeroEnterior;
+    public void setNumeroExterior(String numeroExterior) {
+        this.numeroExterior = numeroExterior;
     }
 
     public Cliente getCliente() {
@@ -108,6 +112,7 @@ public class Direccion implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    
     
     
 
